@@ -82,9 +82,9 @@ package.json            # Dependencies
 ## Brand Positioning
 
 **Category:** Post-Email Revenue Recovery
-**For:** Shopify stores doing $300K–$50M annually
-**Problem:** Email/SMS only recover 5–15% of abandoned carts
-**Solution:** AI voice calls + WhatsApp + SMS recover the other 85–95%
+**For:** Shopify stores doing $300K to $50M annually
+**Problem:** Email/SMS only recover 5-15% of abandoned carts
+**Solution:** AI voice calls + WhatsApp + SMS recover the other 85-95%
 **Pricing:** Commission-only (15% of recovered revenue)
 **Moat:** Cross-merchant intelligence (2,000+ calls, 28 data points)
 

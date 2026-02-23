@@ -13,39 +13,21 @@ import {
   Clock,
   CheckCircle2,
   Zap,
-  Users,
-  DollarSign,
   Activity,
   Phone,
   ShoppingCart,
   ChevronDown,
   ChevronUp,
-  Calculator,
   Check,
-  X,
-  AlertCircle,
   Sparkles,
   Target,
   Award,
   BarChart3,
   Timer,
   UserCheck,
-  Globe,
-  CreditCard,
-  HeadphonesIcon,
   Mail,
-  Star,
-  Building2,
-  Briefcase,
-  FileText,
-  Lock,
-  HelpCircle,
   ChevronRight,
-  Calendar,
   Database,
-  Settings,
-  TrendingDown,
-  MessageCircle,
   Bot
 } from "lucide-react";
 
@@ -196,7 +178,7 @@ export default function Home() {
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
             Your email recovers 5-15%. We recover another 12-18% with AI voice calls,
-            WhatsApp, and smart SMS. We don't replace Klaviyo—we recover what it misses.
+            WhatsApp, and smart SMS. We don't replace Klaviyo. We recover what it misses.
           </p>
 
           {/* CTA Group */}
