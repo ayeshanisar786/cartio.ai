@@ -57,6 +57,7 @@ export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [expandedFeature1, setExpandedFeature1] = useState(false);
   const [expandedFeature2, setExpandedFeature2] = useState(false);
+  const [expandedConversation, setExpandedConversation] = useState(false);
 
   // Calculations
   const abandonedValue = revenue * (cartRate / 100);
@@ -933,99 +934,8 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: AI Call Mockup */}
-            <div className="order-2 lg:order-1">
-              <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
-                {/* Mockup Header */}
-                <div className="bg-gradient-to-r from-emerald-600 to-green-500 p-6 text-white">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
-                        <Bot className="w-7 h-7" />
-                      </div>
-                      <div>
-                        <div className="font-bold text-lg">AI Voice Agent</div>
-                        <div className="text-sm text-emerald-100">Live Call in Progress</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 bg-white/20 backdrop-blur px-3 py-1 rounded-full">
-                      <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-                      <span className="text-sm">2:34</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Conversation */}
-                <div className="p-6 space-y-4 bg-slate-50">
-                  <div className="flex gap-3">
-                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Bot className="w-4 h-4 text-emerald-600" />
-                    </div>
-                    <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-200 max-w-md">
-                      <p className="text-slate-700 text-sm leading-relaxed">
-                        Hi Sarah, this is Alex from Cartio. I noticed you were shopping for the Memory Foam Mattress Topper earlier today. I wanted to make sure everything was okay with your order?
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3 justify-end">
-                    <div className="bg-blue-500 text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-md">
-                      <p className="text-sm leading-relaxed">
-                        Oh yes! I was just comparing prices. Your price seems good but I'm not sure about the shipping time.
-                      </p>
-                    </div>
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <UserCheck className="w-4 h-4 text-blue-600" />
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Bot className="w-4 h-4 text-emerald-600" />
-                    </div>
-                    <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-200 max-w-md">
-                      <p className="text-slate-700 text-sm leading-relaxed">
-                        I completely understand! We actually have express shipping available. I can add 2-day delivery at no extra cost for your order. Would that work for you?
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3 justify-end">
-                    <div className="bg-blue-500 text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-md">
-                      <p className="text-sm leading-relaxed">
-                        That would be perfect! Can you send me the checkout link?
-                      </p>
-                    </div>
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <UserCheck className="w-4 h-4 text-blue-600" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Recovery Indicator */}
-                <div className="bg-gradient-to-r from-emerald-500 to-green-400 p-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-white" />
-                    <span className="text-white font-semibold">Cart Recovered</span>
-                  </div>
-                  <span className="text-white text-2xl font-bold">+$245</span>
-                </div>
-              </div>
-
-              {/* Data Points Indicator */}
-              <div className="mt-6 bg-white rounded-xl p-4 border border-slate-200 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <Database className="w-8 h-8 text-emerald-600" />
-                  <div>
-                    <div className="font-semibold text-slate-900">28 Data Points Analyzed</div>
-                    <div className="text-sm text-slate-600">Cart value • Time abandoned • Purchase history • Location • Device type...</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Text Content */}
-            <div className="order-1 lg:order-2">
+            {/* Left: Text Content */}
+            <div className="order-1 lg:order-1">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4" />
                 <span>AI-Powered Intelligence</span>
@@ -1040,6 +950,109 @@ export default function Home() {
                 learns from 2,000+ calls, and adapts in real-time to customer objections.
               </p>
 
+              {/* Expandable Details Button */}
+              <button
+                onClick={() => setExpandedConversation(!expandedConversation)}
+                className="mb-6 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-all shadow-lg hover:shadow-xl"
+                aria-label={expandedConversation ? "Hide conversation" : "Show conversation"}
+              >
+                <span className={`text-3xl font-light transition-transform ${expandedConversation ? 'rotate-45' : ''}`}>+</span>
+              </button>
+
+              {/* Collapsible Conversation Preview */}
+              {expandedConversation && (
+                <div className="space-y-5 mb-8 animate-slide-up">
+                  <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                    {/* Mockup Header */}
+                    <div className="bg-gradient-to-r from-emerald-600 to-green-500 p-6 text-white">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
+                            <Bot className="w-7 h-7" />
+                          </div>
+                          <div>
+                            <div className="font-bold text-lg">AI Voice Agent</div>
+                            <div className="text-sm text-emerald-100">Live Call in Progress</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 bg-white/20 backdrop-blur px-3 py-1 rounded-full">
+                          <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                          <span className="text-sm">2:34</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Conversation */}
+                    <div className="p-6 space-y-4 bg-slate-50">
+                      <div className="flex gap-3">
+                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-emerald-600" />
+                        </div>
+                        <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-200 max-w-md">
+                          <p className="text-slate-700 text-sm leading-relaxed">
+                            Hi Sarah, this is Alex from Cartio. I noticed you were shopping for the Memory Foam Mattress Topper earlier today. I wanted to make sure everything was okay with your order?
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-3 justify-end">
+                        <div className="bg-blue-500 text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-md">
+                          <p className="text-sm leading-relaxed">
+                            Oh yes! I was just comparing prices. Your price seems good but I'm not sure about the shipping time.
+                          </p>
+                        </div>
+                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <UserCheck className="w-4 h-4 text-blue-600" />
+                        </div>
+                      </div>
+
+                      <div className="flex gap-3">
+                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-emerald-600" />
+                        </div>
+                        <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-200 max-w-md">
+                          <p className="text-slate-700 text-sm leading-relaxed">
+                            I completely understand! We actually have express shipping available. I can add 2-day delivery at no extra cost for your order. Would that work for you?
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-3 justify-end">
+                        <div className="bg-blue-500 text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-md">
+                          <p className="text-sm leading-relaxed">
+                            That would be perfect! Can you send me the checkout link?
+                          </p>
+                        </div>
+                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <UserCheck className="w-4 h-4 text-blue-600" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Recovery Indicator */}
+                    <div className="bg-gradient-to-r from-emerald-500 to-green-400 p-4 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <CheckCircle2 className="w-6 h-6 text-white" />
+                        <span className="text-white font-semibold">Cart Recovered</span>
+                      </div>
+                      <span className="text-white text-2xl font-bold">+$245</span>
+                    </div>
+                  </div>
+
+                  {/* Data Points Indicator */}
+                  <div className="mt-6 bg-white rounded-xl p-4 border border-slate-200 shadow-sm">
+                    <div className="flex items-center gap-3">
+                      <Database className="w-8 h-8 text-emerald-600" />
+                      <div>
+                        <div className="font-semibold text-slate-900">28 Data Points Analyzed</div>
+                        <div className="text-sm text-slate-600">Cart value • Time abandoned • Purchase history • Location • Device type...</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Feature List - Always Visible */}
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
