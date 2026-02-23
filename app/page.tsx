@@ -41,6 +41,18 @@ export default function Home() {
   const [expandedFeature2, setExpandedFeature2] = useState(false);
   const [expandedConversation, setExpandedConversation] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [showExitIntent, setShowExitIntent] = useState(false);
+  const [currentRecovery, setCurrentRecovery] = useState(0);
+
+  // Simulated live recoveries for ticker
+  const liveRecoveries = [
+    { amount: 245, channel: "AI Voice", time: "2m ago", store: "Fashion Store" },
+    { amount: 127, channel: "WhatsApp", time: "5m ago", store: "Home Goods" },
+    { amount: 89, channel: "SMS", time: "8m ago", store: "Electronics" },
+    { amount: 312, channel: "AI Voice", time: "12m ago", store: "Beauty Brand" },
+    { amount: 156, channel: "WhatsApp", time: "15m ago", store: "Supplements" },
+    { amount: 423, channel: "AI Voice", time: "18m ago", store: "Apparel" },
+  ];
 
   // Sticky CTA bar on scroll
   useEffect(() => {
@@ -50,6 +62,30 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Live recovery ticker rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRecovery((prev) => (prev + 1) % liveRecoveries.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Exit intent detection
+  useEffect(() => {
+    let hasShown = false;
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !hasShown && window.scrollY > 500) {
+        setShowExitIntent(true);
+        hasShown = true;
+      }
+    };
+
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, []);
 
   // Calculations
@@ -460,7 +496,7 @@ export default function Home() {
           </div>
 
           {/* 4-Stat Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div className="bg-white p-6 rounded-xl border border-slate-200 text-center">
               <div className="text-4xl font-bold text-emerald-600 mb-2">500+</div>
               <div className="text-slate-600">Shopify Stores</div>
@@ -476,6 +512,32 @@ export default function Home() {
             <div className="bg-white p-6 rounded-xl border border-slate-200 text-center">
               <div className="text-4xl font-bold text-emerald-600 mb-2">38%</div>
               <div className="text-slate-600">Avg Recovery Rate</div>
+            </div>
+          </div>
+
+          {/* Live Proof Ticker */}
+          <div className="mb-16">
+            <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-xl p-4 shadow-lg">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
+                  <span className="text-white font-semibold">Live Recovery</span>
+                </div>
+                <div className="flex-1 mx-6">
+                  <div className="text-white text-center animate-fade-in">
+                    <span className="font-bold">${liveRecoveries[currentRecovery].amount}</span>
+                    <span className="mx-2">•</span>
+                    <span>{liveRecoveries[currentRecovery].channel}</span>
+                    <span className="mx-2">•</span>
+                    <span className="text-emerald-100">{liveRecoveries[currentRecovery].store}</span>
+                    <span className="mx-2">•</span>
+                    <span className="text-emerald-100 text-sm">{liveRecoveries[currentRecovery].time}</span>
+                  </div>
+                </div>
+                <div className="text-emerald-100 text-sm whitespace-nowrap">
+                  Just recovered
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1599,6 +1661,76 @@ export default function Home() {
                   <span className="text-xl">×</span>
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Exit Intent Popup */}
+      {showExitIntent && (
+        <div className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white rounded-2xl max-w-2xl w-full p-8 shadow-2xl relative animate-slide-up">
+            <button
+              onClick={() => setShowExitIntent(false)}
+              className="absolute top-4 right-4 w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition-all"
+              aria-label="Close"
+            >
+              <span className="text-slate-600 text-xl">×</span>
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <ShoppingCart className="w-8 h-8 text-emerald-600" />
+              </div>
+              <h3 className="text-3xl font-bold text-slate-900 mb-3">
+                Wait! Before You Go...
+              </h3>
+              <p className="text-xl text-slate-600 mb-2">
+                See exactly how much revenue you're losing
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200 rounded-xl p-6 mb-6">
+              <div className="text-center">
+                <p className="text-sm text-red-600 font-medium mb-2">Every day you wait costs you:</p>
+                <p className="text-4xl font-bold text-red-600 mb-1">
+                  {formatCurrency(walksAway / 365)}
+                </p>
+                <p className="text-sm text-red-600">in lost revenue per day</p>
+              </div>
+            </div>
+
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                <p className="text-slate-700">Free calculator shows your exact revenue gap</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                <p className="text-slate-700">No credit card required, no commitment</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                <p className="text-slate-700">See results from 500+ Shopify stores</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => {
+                  setShowExitIntent(false);
+                  document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex-1 px-6 py-4 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-all"
+              >
+                Show Me My Revenue Gap
+              </button>
+              <button
+                onClick={() => setShowExitIntent(false)}
+                className="px-6 py-4 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition-all"
+              >
+                No Thanks
+              </button>
             </div>
           </div>
         </div>
