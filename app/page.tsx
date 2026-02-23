@@ -95,6 +95,10 @@ export default function Home() {
       answer: "It's a simple OAuth connection that takes about 5 minutes. Click 'Connect Your Store', authorize the app, and we'll automatically sync your abandoned carts. No technical knowledge required."
     },
     {
+      question: "How do you know the AI recovered the cart vs the customer coming back anyway?",
+      answer: "We use conservative attribution: we only count a recovery if the customer completes checkout within 4 hours of an AI interaction (call, WhatsApp, or SMS). Industry standard is 24 hours—we're stricter. Plus, we only activate on carts that ignored 2-3 email attempts over 48+ hours. If they were going to come back organically, they would've clicked your email. Our dashboard shows the exact timestamp of our contact vs their purchase, so you see the causation yourself."
+    },
+    {
       question: "What data do you need access to?",
       answer: "We only access abandoned cart data, customer contact info, and order history. We never access payment information, inventory data, or modify your store in any way. All data is encrypted and GDPR/CCPA compliant."
     },
@@ -105,6 +109,10 @@ export default function Home() {
     {
       question: "How do customers opt-out?",
       answer: "Customers can opt-out with one click from any message, or by telling our AI voice agent. We maintain a global suppression list and honor all opt-outs immediately. Average opt-out rate is only 3%."
+    },
+    {
+      question: "Can I customize the AI to match my brand voice?",
+      answer: "Yes. During setup, you specify your brand tone (professional, friendly, casual, luxury, etc.) and any custom talking points or phrases you want included. The AI adapts to your style while maintaining natural conversation flow. You can also exclude certain discount offers or set rules for different product categories."
     },
     {
       question: "Do you work with Shopify Plus?",
