@@ -1103,6 +1103,53 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* Right: Visual Mockup */}
+            <div className="order-2 lg:order-2">
+              <div className="bg-gradient-to-br from-emerald-100 via-green-50 to-teal-100 rounded-3xl p-12 shadow-2xl relative">
+                {/* Phone Interface Mockup */}
+                <div className="bg-white rounded-2xl shadow-xl p-6 max-w-md mx-auto">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center">
+                      <PhoneCall className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900">AI Voice Agent</div>
+                      <div className="text-sm text-slate-600">Live Call in Progress</div>
+                    </div>
+                    <div className="ml-auto flex items-center gap-2 bg-green-100 px-3 py-1 rounded-full">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-medium text-green-700">2:34</span>
+                    </div>
+                  </div>
+
+                  {/* Data Points */}
+                  <div className="space-y-3">
+                    <div className="bg-slate-50 rounded-lg p-3 text-sm">
+                      <div className="text-slate-600">Cart Value:</div>
+                      <div className="font-bold text-slate-900">$245.00</div>
+                    </div>
+                    <div className="bg-slate-50 rounded-lg p-3 text-sm">
+                      <div className="text-slate-600">Time Abandoned:</div>
+                      <div className="font-bold text-slate-900">18 hours ago</div>
+                    </div>
+                    <div className="bg-slate-50 rounded-lg p-3 text-sm">
+                      <div className="text-slate-600">Customer Segment:</div>
+                      <div className="font-bold text-slate-900">VIP Shopper</div>
+                    </div>
+                    <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
+                      <div className="text-emerald-700 text-sm font-medium">✓ 28 Data Points Analyzed</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Stat */}
+                <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-2xl p-4 border border-emerald-200">
+                  <div className="text-3xl font-bold text-emerald-600">38%</div>
+                  <div className="text-sm text-slate-600">Recovery Rate</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
