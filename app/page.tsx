@@ -60,7 +60,7 @@ export default function Home() {
     {
       name: "Bawar Ahmed",
       title: "Founder, Ecomma",
-      revenue: "$800K/yr",
+      revenue: "$800K/yr • Home & Living",
       quote: "Klaviyo recovered 11% of abandoned carts. Cartio recovered an additional <strong>$6,200/month</strong> from the carts Klaviyo missed. I pay $930, net $5,270 in pure profit I wasn't getting before.",
       proof: "$6,200/month recovered",
       avatar: "SM",
@@ -69,9 +69,9 @@ export default function Home() {
     },
     {
       name: "Matt Johnson",
-      title: "Founder, Fashion Brand",
-      revenue: "$2.1M/yr",
-      quote: "97% of customers are positive or neutral about the calls. <strong>Only 3% opt out</strong>. We're recovering $14K/month we were just leaving on the table before.",
+      title: "Founder, DTC Fashion Brand",
+      revenue: "$2.1M/yr • Apparel",
+      quote: "I was worried the AI would sound robotic and hurt our brand. The opposite happened. 97% of customers rate the calls as helpful or professional. <strong>Only 3% opt out</strong>. We're recovering $14K/month from carts that ignored our emails.",
       proof: "3% opt-out rate",
       avatar: "JD",
       image: "/images/matt.jpeg",
@@ -80,8 +80,8 @@ export default function Home() {
     {
       name: "Scott May",
       title: "Owner, Keyststation",
-      revenue: "$1.4M/yr",
-      quote: "Setup took literally 4 minutes. I thought it would be complicated but it's just OAuth. <strong>First recovery came in 52 hours</strong>.",
+      revenue: "$1.4M/yr • Electronics",
+      quote: "Setup took literally 4 minutes. I thought it would be complicated but it's just OAuth. <strong>First recovery came in 52 hours</strong>. Zero risk pricing means I had nothing to lose. Now we're netting $4K+ monthly in revenue we never would've seen.",
       proof: "4-minute setup",
       avatar: "LK",
       image: "/images/scott.png",
@@ -113,6 +113,14 @@ export default function Home() {
     {
       question: "Can I customize the AI to match my brand voice?",
       answer: "Yes. During setup, you specify your brand tone (professional, friendly, casual, luxury, etc.) and any custom talking points or phrases you want included. The AI adapts to your style while maintaining natural conversation flow. You can also exclude certain discount offers or set rules for different product categories."
+    },
+    {
+      question: "What if a customer asks a product question the AI can't answer?",
+      answer: "The AI has access to your full product catalog including descriptions, materials, sizing charts, and care instructions pulled directly from Shopify. For complex questions beyond product data (like 'will this fit my RV?'), the AI gracefully pivots: 'That's a great question. Let me send you our product specialist's contact info along with your checkout link. They can answer that specifically.' The goal is recovery, not becoming tech support."
+    },
+    {
+      question: "What if we get zero recoveries? How do I cancel?",
+      answer: "If you get zero results, you pay zero. Commission-only means exactly that. Cancellation is one click in your dashboard under Settings → Cancel Account. No phone calls, no retention pitches, no waiting for support. You're out in 10 seconds. We've never had a merchant stay connected for 30 days and see zero recoveries, but if you're the first, you've lost 5 minutes of setup time and gained free analytics on why your carts abandon."
     },
     {
       question: "Do you work with Shopify Plus?",
